@@ -6,21 +6,16 @@
 // Number: myNumber ==> Number.prototype --> Object.prototype --> null
 // Boolean: myBoolean --> myBoolean.prototype --> Object.prototype --> null 
 
+const puzzleEl = document.getElementById('puzzle')
+const guessesEl = document.getElementById('guesses')
 
-
-const puzzleEl = document.querySelector('#puzzle')
-const guessesEl = document.querySelector('#guesses')
-const game1 = new Hangman('cat', 6)
-
-puzzleEl.textContent = game1.getPuzzle()
-guessesEl.textContent = game1.remainingGuesses
-console.log(game1.status) 
+const game1 = new Hangman('cat', 5)
 
 
 window.addEventListener('keypress', function(e) {
     const guess = String.fromCharCode(e.charCode)
     game1.makeGuess(guess)
-    puzzleEl.textContent = game1.getPuzzle()
-    guessesEl.textContent = game1.remainingGuesses
+    console.log(game1.remainingGuesses)
+    console.log(game1.getPuzzle())
     console.log(game1.status)
 })
